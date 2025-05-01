@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PostList from '../components/PostList';
 import { useLocalStorage } from '../components/LocalStorageProvider';
 
@@ -7,7 +8,12 @@ function Home() {
 
   return (
     <div className="home-page">
-      <h1>Latest Posts</h1>
+      <div className="home-header">
+        <h1>Latest Posts</h1>
+        <Link to="/write" className="write-button">
+          글쓰기
+        </Link>
+      </div>
       <PostList posts={posts} />
     </div>
   );

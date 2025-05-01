@@ -9,6 +9,7 @@ import Admin from './pages/Admin';
 import TagPage from './pages/TagPage';
 import TagsPage from './pages/TagsPage';
 import SearchPage from './pages/SearchPage';
+import WritePage from './pages/WritePage';
 import './App.css';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/tag/:tag" element={<TagPage />} />
             <Route path="/tags" element={<TagsPage />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/write" element={<WritePage />} />
           </Routes>
         </main>
         <Footer />

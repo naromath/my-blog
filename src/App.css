@@ -63,11 +63,15 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  gap: 3rem;
 }
 
 .site-title {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  min-width: 200px;
 }
 
 .site-title a {
@@ -175,7 +179,9 @@ main.container {
 
 .search-form {
   display: flex;
-  max-width: 300px;
+  min-width: 300px;
+  max-width: 400px;
+  width: 100%;
 }
 
 .search-input {
@@ -270,7 +276,27 @@ main.container {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.write-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.write-button:hover {
+  background-color: #0056b3;
+  color: white;
+  text-decoration: none;
 }
 
 .table-of-contents {
@@ -614,4 +640,63 @@ main.container {
   .share-button {
     width: 100%;
   }
+}
+
+.write-page {
+  background-color: var(--card-bg);
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.write-page h2 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  resize: vertical;
+  min-height: 200px;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.home-header h1 {
+  margin: 0;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-control::placeholder {
+  color: #999;
 }

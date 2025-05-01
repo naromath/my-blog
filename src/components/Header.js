@@ -9,7 +9,7 @@ function Header() {
       <div className="container">
         <div className="header-top">
           <h1 className="site-title">
-            <Link to="/">My React Blog</Link>
+            <Link to="/">ENTOLOGY</Link>
           </h1>
           <div className="header-actions">
             <SearchBar />
