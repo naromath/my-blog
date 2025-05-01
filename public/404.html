@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>React Blog</title>
+  <script type="text/javascript">
+    // 단일 페이지 애플리케이션의 새로고침 이슈 해결
+    // GitHub Pages에서 SPA의 새로고침 시 404 오류 방지
+    (function(l) {
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    var segmentCount = 1;
+    var location = window.location;
+    var rootPath = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
+    var path = location.pathname;
+    
+    // GitHub Pages는 아래와 같이 패턴화된 구조를 가집니다: '/[repo-name]/[path]'
+    // segmentCount를 1로 설정하면 '/[repo-name]'까지만 유지하고 
+    // 나머지 경로는 해시 경로로 전달됩니다.
+    path = path.split('/').slice(0, 1 + segmentCount).join('/');
+    
+    // 루트 경로로 리다이렉트하고 원래 경로를 해시 파라미터로 전달
+    location.replace(
+      rootPath + path + '?p=/' + 
+      path.split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+      (location.search ? '&' + location.search.slice(1).replace(/&/g, '~and~') : '') +
+      location.hash
+    );
+  </script>
+</body>
+</html>
